@@ -40,6 +40,9 @@ public class Study5_while_ex2 {
 			   if(act==1) {
 			    	monsterHp -= random.nextInt(10);
 			    	System.out.println("몬스터에게 평범한 일격을 가합니다.");
+			    	if(monsterHp<=0) {
+			    		break;
+			    	}
 			   }
 			   else if(act==2) {
 		            if(skill>0) {
@@ -56,9 +59,9 @@ public class Study5_while_ex2 {
 					   hp = 40;
 				    }
 			   }else {
-				  int run = random.nextInt(2);
-				  if(run==1) {
-				    	System.out.println("몬스터에게서 도망쳤습니다");
+				    int run = random.nextInt(2);  //0이상 2미만의 정수
+				    if(run==1) {
+				     	System.out.println("몬스터에게서 도망쳤습니다");
 				    	break;	
 				  }
 				  System.out.println("도망에 실패했습니다");
@@ -67,7 +70,7 @@ public class Study5_while_ex2 {
 			System.out.println("몬스터가 당신을 공격합니다");
 			hp -= random.nextInt(40);
 			
-		}
+		}  //while문 끝
 		System.out.println("내 Hp : "+hp);
 		System.out.println("적의 남은 Hp: "+monsterHp);
 		
@@ -80,3 +83,5 @@ public class Study5_while_ex2 {
 		}	
 	
 	}
+//switch문으로 만들면 몬스터 공격을 if문으로 
+// turn을 정해서 하면 가능함
