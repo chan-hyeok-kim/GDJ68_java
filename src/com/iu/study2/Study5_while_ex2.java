@@ -14,7 +14,7 @@ public class Study5_while_ex2 {
 		int monsterPower = 40; //몬스터의 공격력
 		
 		//유저 정보 : hp, 몬스터 정보: hp 등등
-		//1. 평타  2. 스킬  3. HP회복 4.도망
+		//1.평타  2.스킬  3.HP회복 4.도망
 		//평타 : 0~10 미만의 공격이 몬스터에게 적용
 		//스킬 : 0~30 미만의 공격이 몬스터에게 적용(최대3번까지만)
 		//회복 : 회복량 0~40 까지 회복. 40을 넘어가면 40고정
@@ -27,63 +27,56 @@ public class Study5_while_ex2 {
 		
 		//누가 죽던 도망가던 종료합니다. 출력
 		int skill = 3;
-		int run = 1;
-		boolean b= true;
 		
-		while(b) {
 		while(hp>0 && monsterHp>0) {
 			System.out.println("현재 당신의 체력은 "+hp+"입니다.");
 			System.out.println("현재 몬스터 체력은 "+monsterHp+"입니다.");
 			
 			
 			System.out.println("당신은 무얼 하시겠습니까?");
-			System.out.println("1.평타 2. 스킬 3. HP회복 4.도망");
+			System.out.println("1.평타 2.스킬 3.HP회복 4.도망");
 			int act = sc.nextInt();
 			
-			switch(act) {
-			case 1:
-				monsterHp -= random.nextInt(10);
-				break;
-			case 2:
-				if(skill>0) {
-				  monsterHp -= random.nextInt(30);
-				  skill--;
-				  break;
-				}else {
-					System.out.println("스킬을 다 사용했습니다");
-					break;
-				}
-			case 3:
-				hp += random.nextInt(40);
-				if(hp>40){
-					hp = 40;
-				}
-				break;
-			case 4:
-				run = random.nextInt(2);
-				if(run==1) {
-					System.out.println("몬스터에게서 도망쳤습니다");
-					b=!b;
-					break;
-				}
-				System.out.println("도망에 실패했습니다");
-				break;	
-			}
+			   if(act==1) {
+			    	monsterHp -= random.nextInt(10);
+			    	System.out.println("몬스터에게 평범한 일격을 가합니다.");
+			   }
+			   else if(act==2) {
+		            if(skill>0) {
+				      monsterHp -= random.nextInt(30);
+				      System.out.println("스킬을 사용합니다!");		      
+				      skill--;
+				    }else {
+				      System.out.println("스킬을 더 이상 사용할 수 없습니다.");
+			        }
+		       }
+			   else if(act==3) {
+				       hp += random.nextInt(40);
+				    if(hp>40){
+					   hp = 40;
+				    }
+			   }else {
+				  int run = random.nextInt(2);
+				  if(run==1) {
+				    	System.out.println("몬스터에게서 도망쳤습니다");
+				    	break;	
+				  }
+				  System.out.println("도망에 실패했습니다");
+			   }
 			//몬스터의 공격
-			System.out.println("몬스터가 공격합니다");
+			System.out.println("몬스터가 당신을 공격합니다");
 			hp -= random.nextInt(40);
 			
 		}
 		System.out.println("내 Hp : "+hp);
 		System.out.println("적의 남은 Hp: "+monsterHp);
-//			if(hp>0) {
-//				System.out.println("전투에서 승리하셨습니다");
-//		}else {
-//			System.out.println("전투에서 패배하셨습니다");
-//			
-//		}
+		
+		if(hp>monsterHp) {
+			System.out.println("전투에서 승리하셨습니다");
+		} else if(hp<=0) {
+			System.out.println("전투에서 패배하셨습니다");
+		}
 		System.out.println("전투가 종료됩니다");
 		}	
 	
 	}
-}

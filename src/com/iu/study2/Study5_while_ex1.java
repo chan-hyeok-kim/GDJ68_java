@@ -58,11 +58,10 @@ public class Study5_while_ex1 {
         
         
         //현재레벨, 골드가 출력
-        int sum = 0;
-        int lev = 1;
+        
         int gold = 0;
          
-        for(int i=1; i<15; i++) {
+        for(int i=1; i<15;) {
         	 System.out.println("게임을 계속하시겠습니까? 1.진행 2.종료");
              int start = sc.nextInt(); 
              
@@ -70,10 +69,10 @@ public class Study5_while_ex1 {
         	    for(int hunt=1; hunt<=3*i; hunt++) {
                    System.out.println(hunt+"마리 잡았습니다");
         	          if(3*i==hunt){
-        	        	 lev = i+1;
-        	             System.out.println(lev+"으로 레벨업하셨습니다");
-        	             if(lev%5==0) {
-        		            gold += 1000*(lev/5);
+        	             System.out.println(i+1+"으로 레벨업하셨습니다");
+        	             i++;
+        	             if(i%5==0) {
+        		            gold += 1000*(i/5);
         	             } 
         	             break;
         	          }
@@ -81,12 +80,14 @@ public class Study5_while_ex1 {
              }else {
              break;
              }
-             System.out.println("현재 레벨: "+(i+1));
+             System.out.println("현재 레벨: "+i);
              System.out.println("현재 골드: "+gold);
-             System.out.println("프로그램 종료");
+             
         }
+        System.out.println("프로그램 종료");
     }
 }
-	
+	//종료시에 레벨 골드 출력되게끔 바꾸면 
+    // i++이랑 골드출력 내부에 안넣어도 됨. break를 continue로 바꾸면 되니까
 
 
