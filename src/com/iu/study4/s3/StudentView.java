@@ -1,4 +1,4 @@
-package com.iu.study4.s2;
+package com.iu.study4.s3;
 
 public class StudentView {
  
