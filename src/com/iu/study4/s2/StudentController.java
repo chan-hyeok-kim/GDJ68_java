@@ -21,8 +21,7 @@ public class StudentController {
 		select = sc.nextInt();
 			
 		StudentService ss = new StudentService();
-		count = students.length;
-		  
+		 
 		  if(select==1) {	
 	         Student[] student = ss.makeStudents();
 	         students = student;
