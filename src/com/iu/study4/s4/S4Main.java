@@ -14,8 +14,10 @@ public class S4Main {
 //        product.getPrice();
 //        product.info();
         
-        Student
+//        Student
         //다른 패키지의 클래스 가져올때 import
+        
+        
 	}
 
 }
